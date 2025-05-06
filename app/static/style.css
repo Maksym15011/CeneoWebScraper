@@ -41,22 +41,12 @@ p {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    transition: background-color 0.3s ease;
-}
-
-.list-group-item:hover {
-    background-color: #555;
 }
 
 .list-group-item a {
     color: #E0E0E0;
     text-decoration: none;
     font-weight: 600;
-    transition: color 0.3s ease;
-}
-
-.list-group-item a:hover {
-    color: #FFFFFF;
 }
 
 .product-details {
