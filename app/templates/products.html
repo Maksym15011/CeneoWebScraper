@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}
+Lista Produktów
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="text-center">Lista produktów</h2>
+
+    {% if error %}
+        <p>{{ error }}</p>
+    {% else %}
+        <ul class="list-group">
+            {% for product in products %}
+                <li class="list-group-item">
+                    <a href="{{ url_for('product', product_id=product['product_id']) }}">{{ product['product_id'] }}</a>
+                    <div class="product-details">
+                        <span>{{ product['product_name'] }}</span>
+                        <span class="badge rounded-pill">{{ product['opinions_count'] }}</span>
+                        <span class="badge rounded-pill">{{ product['pros_count'] }}%</span>
+                        <span class="badge rounded-pill">{{ product['cons_count'] }}</span>
+                        <span class="badge rounded-pill">{{ product['average_stars'] }}</span>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</div>
+{% endblock %}
