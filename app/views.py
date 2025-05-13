@@ -1,6 +1,7 @@
 import json
 import os
 import pandas as pd
+import requests
 from app import app
 from flask import render_template, request, redirect, url_for # type: ignore
 
@@ -15,6 +16,10 @@ def index():
 def extract():
     if request.method == "POST":
         product_id = request.form.get("product_id")
+        url = f"https://www.ceneo.pl/{product_id}#tab=reviews"
+        response = requests.get(url)
+        print(response.status_code)
+
         return redirect(url_for("product", product_id=product_id))
     return render_template("extract.html")
 
