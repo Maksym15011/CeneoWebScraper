@@ -1,7 +1,11 @@
 import json
 import os
+import pandas as pd
 from app import app
 from flask import render_template, request, redirect, url_for # type: ignore
+
+def list_to_html(l):
+    return "<ul>"+"".join([f"<li>{e}</li>" for e in l])+"</ul>" if l else ""
 
 @app.route('/')
 def index():
@@ -40,4 +44,13 @@ def author():
 
 @app.route('/product/<int:product_id>')
 def product(product_id: int):
-    return render_template("product.html", product_id=product_id)
+    with open(f"./app/data/opinions/{product_id}.json", "r", encoding="UTF-8") as jf:
+        try:
+            opinions = json.load(jf)
+        except json.JSONDecodeError:
+            error = "Dla produktu o podanym id nie pobrano jeszcze opinii"
+            return render_template("product.html", error=error)
+    opinions = pd.DataFrame.from_dict(opinions)
+    opinions.pros = opinions.pros.apply(list_to_html)
+    opinions.cons = opinions.cons.apply(list_to_html)
+    return render_template("product.html", opinions=opinions.to_html(classes="table table-hover"))

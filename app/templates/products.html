@@ -20,7 +20,10 @@ Lista Produktów
                         <span class="badge rounded-pill">{{ product['opinions_count'] }}</span>
                         <span class="badge rounded-pill">{{ product['pros_count'] }}%</span>
                         <span class="badge rounded-pill">{{ product['cons_count'] }}</span>
-                        <span class="badge rounded-pill">{{ product['average_stars'] }}</span>
+                        <span class="badge rounded-pill">{{ product.average_stars | round(2) }}</span>
+                        <a type="button" class="btn btn-info" href="#">CSV</a>
+                        <a type="button" class="btn btn-info" href="#">XLSX</a>
+                        <a type="button" class="btn btn-info" href="#">JSON</a>
                     </div>
                 </li>
             {% endfor %}

@@ -5,13 +5,13 @@ Ekstrakcja opinii o produkcie
 {% endblock %}
 
 {% block content %}
-<div class="container mt-5 d-flex justify-content-center align-items-start" style="min-height: 60vh;">
+<div class="container mt-5 d-flex justify-content-center align-items-start min-vh-60">
     <div class="w-50 text-center">
         <h2 class="mb-4">Ekstrakcja opinii z Ceneo.pl</h2>
         <div class="card p-4">
             <form method="POST" action="{{ url_for('extract') }}">
                 <div class="d-flex justify-content-center align-items-center gap-2 flex-wrap">
-                    <input type="text" class="form-control" id="product_id" name="product_id" placeholder="Kod produktu" required style="max-width: 300px;">
+                    <input type="text" class="form-control max-w-300" id="product_id" name="product_id" placeholder="Kod produktu">
                     <button type="submit" class="btn btn-primary">Pobierz opinie</button>
                 </div>
             </form>
