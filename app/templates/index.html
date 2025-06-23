@@ -1,13 +1,27 @@
 {% extends 'base.html' %}
+
 {% block title %}
-Opis projektu
+CeneoScraper — Strona główna
 {% endblock %}
 
 {% block content %}
-<ul>
-    <li>Cel aplikacji</li>
-    <li>Opis działania aplikacji</li>
-    <li>Zastosowane biblioteki</li>
-    <li>Zastosowane podejścia</li>
-</ul>
+<div class="container mt-5">
+    <h1 class="mb-4">Witamy w CeneoScraper!</h1>
+
+    <p>
+        To narzędzie pozwala na zbieranie i analizę opinii o produktach dostępnych na portalu <a href="https://www.ceneo.pl" target="_blank" rel="noopener noreferrer">Ceneo.pl</a>.
+        Możesz przeglądać zgromadzone dane, analizować oceny i rekomendacje użytkowników.
+    </p>
+
+    <h2 class="mt-5">Co oferuje nasza aplikacja?</h2>
+    <ul>
+        <li><strong>Ekstrakcja opinii:</strong> pobierz najnowsze recenzje i oceny produktu za pomocą kodu produktu.</li>
+        <li><strong>Lista produktów:</strong> przeglądaj wszystkie produkty, dla których zebraliśmy opinie.</li>
+        <li><strong>Szczegóły produktu:</strong> zobacz szczegółowe dane i opinie dotyczące konkretnego produktu.</li>
+    </ul>
+
+    <h2 class="mt-5">Jak zacząć?</h2>
+    <p>Aby rozpocząć zbieranie opinii, przejdź do zakładki Ekstrakcja opinii i wprowadź kod produktu.</p>
+
+</div>
 {% endblock %}
